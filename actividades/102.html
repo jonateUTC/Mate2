@@ -11,108 +11,12 @@
         <!--Animaciones-->
         <link href="css/animate.css" rel="stylesheet">
         <!--Css propio del proyecto-->
+        <link rel="stylesheet" type="text/css" href="css/literallycanvas.css" />
         <link href="css/custom.css" rel="stylesheet">
         <link href="css/icomoon.css" rel="stylesheet">
         <link href="css/custom.css" rel="stylesheet">
         <link href="css/jquery-ui.min.css" rel="stylesheet">
-        <style type="text/css">
-      .mi_canvas {
-        min-width: 320px;
-      }
-      #prueba {
-        margin-top: 2rem;
-        display: block;
-        box-sizing: border-box;
-        padding: 0px;
-        transition: all .3s linear 0s;
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        background-color:#e5e5e5; 
-        /*background-color:rgba(212,185,186,0.2);*/ 
-        background-image: url(img/i1_p101_act98.jpg); /* SI SE NECESITA UNA IMAGEN DE FONDO */
-        background-size: 100% 100%;
-      }
-      #logo {
-        display: block;
-        margin-top: 1rem;
-        margin-left: 1rem;
-        z-index: 1;
-        width: 30%;
-        height: auto;
-        max-width: 350px;
-        min-width: 100px;
-      }
-      #contenedoropciones {
-        margin-top: 2rem;
-        padding: 2px;
-        max-width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      #contenedoropciones table {
-      background-color: rgba(220,220,220,1.00);
-      border: .25rem solid rgba(188,185,185,1.00);
-      margin-bottom: .5rem;
-      border-spacing: 5px;
-      border-collapse: separate;
-      }
-      #contenedoropciones table:nth-of-type(2) {
-        border-spacing: 5px;
-      }
-      #contenedoropciones table:nth-of-type(2) td {
-        width: 1px;
-        white-space: nowrap;
-      }
-      #contenedoropciones table:nth-of-type(1) td {
-        cursor: pointer;
-      }
-      #contenedoropciones .titulotabla {
-        text-align: center;
-        font-weight: bold;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        color: white;
-        background-color:rgba(103,103,103,1.00)
-      }
-      #contenedoropciones table {
-        display: inline-table;
-      }
-      
-      .celdascoloresdefondo {
-        width: 20px;
-        height: 10px;
-        border: solid 1px transparent;
-      }
-      @media (max-width: 890px) {
-        /*.mi_canvas {
-          font-size: .750rem;
-        }*/
-        #contenedoropciones, #prueba {
-          width: 98%
-        }
-        #contenedoropciones {
-          margin-left: 1%;
-        }
-      }
-      @media (max-width: 450px) {
-        /*.mi_canvas {
-          font-size: .75rem;
-        }*/
-      }
-      @media (max-width: 1px) {
-        #contenedoropciones #opcionesdedibujo {
-          display: table;
-          width: 100%;
-        }
-        #contenedoropciones #opcionesdedibujo td {
-          display: block;
-          width: auto;
-          text-align: left;
-          margin-top: 5px;    
-        }
-      }
-    </style>
+        
         <style>
         .cajas {
             max-width: 100%;
@@ -257,7 +161,7 @@
         <div id="nota-informativa" class="nota-ayuda">
             <button type="button" class="close" onclick="cerrar_ayuda()" aria-label="Close"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
             <!--ACA ESCRIBIR TEXTO DE LA AYUDA DE LA ACTIVIDAD-->
-            Dibujo las doce naranjas y relaciono sus elementos. <br>
+            Dibujo y pinto una secuencia. <br>
             <span id="ayudas"></span>
         </div>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -314,7 +218,7 @@
                                 <span class="glyphicon glyphicon-pencil"></span> Tú puntaje <span id="txtNota"> </span>/ 10
                         </span>
                         <span class="notificacion pagina">
-                                <span class="glyphicon glyphicon-bookmark"></span> Pag 101
+                                <span class="glyphicon glyphicon-bookmark"></span> Pag 103
                         </span>
                     </li>
                 </ul>
@@ -331,68 +235,18 @@
                     <span class="titulo_2 txtAlumno display-none" id="nombre_alumno">Alumno: </span>
                 </div>
                 <div class="panel-body">
-                    <img src="img/problema_lengua.png" class="img-responsive" alt="">
+                    <img src="img/problema.png" class="img-responsive" alt="">
                     <br>
                     <!--pregunats de la actividad-->
-                        <div class="text-question"><p align="justify"><input type="text" class="nota-abierta calif" id="nota1_1" >Lola compra una docena de naranjas para regalar a cada uno de sus compañeros del Club de Poesía. ¿Cuántos son los miembros de este club? <b>Dibujo </b> las doce naranjas y <b>relaciono</b> sus elementos para que se cumpla la relación de correspondencia.</p></div>
+                        <div class="text-question"><p align="justify"><input type="text" class="nota-abierta calif" id="nota1_1" >Paloma observa la ilustración de la naturaleza de la página anterior y encuentra un patrón de tres atributos. <br>¿Cuál es el patrón? <b>Dibujo y pinto </b> una secuencia en mi cuaderno.</p></div>
                         <div class="actividad98">
-                            <main>
-                                <canvas id="prueba">Este navegador no soporta canvas, visualice la web con un navegador actualizado.</canvas>
-
-                                    <div id="paleta" class="mi_canvas">        
-                                        <div id="contenedoropciones">
-                                            <div class="table-responsive">
-                                            <table width="auto">
-                                                <tbody>
-                                                    <tr>
-                                                        <td colspan="9" class="titulotabla">Color</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="celdascoloresdefondo" data-color="red">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="pink">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="orange">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="yellow">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="magenta">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="MEDIUMSEAGREEN">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="green">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="DARKCYAN">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="cyan">&nbsp;</td>
-                                                    </tr>
-                                                    <tr>    
-                                                        <td class="celdascoloresdefondo" data-color="blue">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="wheat">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="brown">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="white">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="LIGHTGRAY">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="gray">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="LIGHTSLATEGRAY">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="DARKSLATEGRAY">&nbsp;</td>
-                                                        <td class="celdascoloresdefondo" data-color="black">&nbsp;</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <table width="auto" id="opcionesdedibujo">
-                                                <tbody>
-                                                    <tr>
-                                                        <td colspan="5" class="bg-info">Opciones de dibujo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Grosor pincel: <input onChange="cambiagrosor(this)" name="grosor" type="number" id="grosor" max="100" min="3" step="1" title="Grosor del cursor" value="5"></td>
-                                                        <td onClick="cambiapincel(this)" id="celdapincelcuadrado" style="cursor:pointer;border:solid 1px black;background-color: white;">Pincel cuadrado</td>
-                                                        <td onClick="cambiaaccion(this)" id="xpintar"class="celdaaccion" style="cursor:pointer;border:solid 1px black;background-color: white;">Pintar</td>
-                                                        <td rowspan="2"  onClick="borrartodo()"><span class="btn btn-danger">Borrar todo</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Grosor borrar: <input onChange="cambiagrosorborrador(this)" name="grosorborrar" type="number" id="grosorborrar" max="100" min="3" step="1" title="Grosor del borrardor" value="10"></td>
-                                                        <td onClick="cambiapincel(this)" id="celdapincelredondo" style="cursor:pointer;border:solid 1px transparent">Pincel redondo</td>
-                                                        <td onClick="cambiaaccion(this)" id="xborrar" class="celdaaccion" style="cursor:pointer;border:solid 1px transparent">Borrar</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </main>
+                            <button id="myImg" class="btn-success">Mostrar Gráfico</button>
+                            <div class="oculta" align="center">
+                                <img class="img-responsive" src="img/i1_p102_act99.jpg" alt="">
+                                <button id="myImg1" class="btn-default">Ocultar Gráfico</button>
+                            </div>
+                            <br>
+                            <div class="my-drawing" ></div>
                         </div>
                     
                         <div class="row"></div>
@@ -442,6 +296,8 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <!--generador de pdf-->
+        <script src="js/react-with-addons.js"></script>
+        <script type="text/javascript" src="js/literallycanvas.min.js"></script>
         <script src="js/html2pdf/html2pdf.bundle.min.js"></script>
         <script src="js/screenfull.js"></script>
         <script src="js/helper1.js"></script>
@@ -453,7 +309,7 @@
         <script src="js/jquery.animate.css.js"></script>
         <script src="js/activities.js"></script>
         <script src="js/Utilitario.js"></script>
-        <script src="js/dibujarCANVAS.js"></script>
+        
         <script src="js/validacionesExtras.js"></script>
         <!--<script src="js/activities.js"></script>-->
         <script>
@@ -488,6 +344,16 @@
             }
          
         }
+        $(".oculta").hide();
+                
+                    $("#myImg1").click(function(){
+                        $(".oculta").hide(1000);
+                        $("#myImg").show();
+                    });
+                    $("#myImg").click(function(){
+                        $(".oculta").show(1000);
+                        $("#myImg").hide();
+                    });
         document.getElementById('nota1_1').addEventListener('keypress', () => {
             validNumero(0, 10, 1);
         });
@@ -497,6 +363,19 @@
         $( ".btnCalificar" ).bind( "click", function() {
                     CalificacionAbierta();
                 });
+        </script>
+         <script>
+            
+            scale = 1
+            var winWidth = $(window).width();
+            
+            var lc = LC.init(
+                document.getElementsByClassName('my-drawing')[0], {
+                    imageURLPrefix: 'imgcanvas'
+                });
+            
+            lc.respondToSizeChange();
+            
         </script>
     </body>
 
