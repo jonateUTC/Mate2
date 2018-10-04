@@ -13,6 +13,19 @@ function mayus(e) {
 function mayus1(e) {
         e.value = e.value.toUpperCase();
 }
+document.getElementById('nota1_1').addEventListener('keypress', () => {
+    validNumero(0, 2, 1);
+});
+document.getElementById('nota1_1').addEventListener('keyup', () => {
+    validMaxIngreso(document.getElementById('nota1_1'), 2)
+});
+document.getElementById('nota1_2').addEventListener('keypress', () => {
+    validNumero(0, 2, 1);
+});
+document.getElementById('nota1_2').addEventListener('keyup', () => {
+    validMaxIngreso(document.getElementById('nota1_2'), 2)
+});
+
 function limpia(){
     for (var i = 2; i<=21; i++) {
         if ($('#p4pnt'+(i)).hasClass('pinta')) {
@@ -1577,6 +1590,42 @@ function limpia1(){
             }
 
         })
+
+    //////////////////////////////////////////////////pregunta5///////////////////////////////////////////////////
+    var p5num3 = parseInt((Math.random() * 10) + 17);
+    var p5num4 = parseInt((Math.random() * 10) + 5);
+    var p5nm3=0;
+    var p5nm4=0;
+    if (p5num3>p5num4) {
+        $('#p5da1').html(p5num3);
+        $('#p5da2').html(p5num4); 
+        $('#p5da3').html(p5num3);
+        $('#p5da4').html(p5num4); 
+        p5nm3=p5num3;
+        p5nm4=p5num4;
+    }else {
+        if (p5num3==p5num4) {
+            $('#p5da1').html((p5num4+1));
+            $('#p5da2').html(p5num3);
+            $('#p5da3').html((p5num4+1));
+            $('#p5da4').html(p5num3);
+            p5nm3=(p5num4+1);
+            p5nm4=p5num3;    
+        }else {
+            $('#p5da1').html((p5num4));
+            $('#p5da2').html(p5num3);
+            $('#p5da3').html((p5num4));
+            $('#p5da4').html(p5num3);
+            p5nm3=p5num4;
+            p5nm4=p5num3;
+        }
+        
+    }
+
+    var p5num1 = parseInt((Math.random() * 10) + 10);
+    var p5num2 = parseInt((Math.random() * 10) + 10);
+    $('#p5da5').html(p5num1);
+    $('#p5da6').html(p5num2);
    	bt_comprobar.addEventListener("click", f_comprobar);
    	function f_comprobar(){
         cont++;
@@ -1738,7 +1787,7 @@ function limpia1(){
         $('#p41pnt25').unbind( "click" );
         $('#p41pnt26').unbind( "click" );
         var p41dlg =$('.pinta1').length;
-        
+        var p4cont1=0;
         if (p41dlg=='1') {
            $('.p4pint1').addClass('no-valid');
            $('.p4pint2').addClass('no-valid');
@@ -1767,20 +1816,303 @@ function limpia1(){
            $('.p4pint25').addClass('no-valid');
            $('.p4pint26').addClass('no-valid');     
            f_no($('#p41dcon1'));
-           inc++;
+           p4cont1;
         }else {
            if (sumando11==p4nm3 && sumando12==p4nm4 && sumando13==(p4nm3-p4nm4)) {
-                cor++;
+                p4cont1++;
 
                 $('.pinta1').addClass('valid');
 
                 f_ok($('#p41dcon1'));
             }else {
-                inc++;
+                p4cont1;
                 $('.pinta1').addClass('no-valid');
                 f_no($('#p41dcon1'));
             }
         }
+
+
+        $('#p4pnt1').unbind( "click" );
+        $('#p4pnt2').unbind( "click" );
+        $('#p4pnt3').unbind( "click" );
+        $('#p4pnt4').unbind( "click" );
+        $('#p4pnt5').unbind( "click" );
+        $('#p4pnt6').unbind( "click" );
+        $('#p4pnt7').unbind( "click" );
+        $('#p4pnt8').unbind( "click" );
+        $('#p4pnt9').unbind( "click" );
+        $('#p4pnt10').unbind( "click" );
+        $('#p4pnt11').unbind( "click" );
+        $('#p4pnt12').unbind( "click" );
+        $('#p4pnt13').unbind( "click" );
+        $('#p4pnt14').unbind( "click" );
+        $('#p4pnt15').unbind( "click" );
+        $('#p4pnt16').unbind( "click" );
+        $('#p4pnt17').unbind( "click" );
+        $('#p4pnt18').unbind( "click" );
+        $('#p4pnt19').unbind( "click" );
+        $('#p4pnt20').unbind( "click" );
+        $('#p4pnt21').unbind( "click" );
+        
+        var p4dlg =$('.pinta').length;
+        
+        if (p4dlg=='1') {
+           $('.pint1').addClass('no-valid');
+           $('.pint2').addClass('no-valid');
+           $('.pint3').addClass('no-valid');
+           $('.pint4').addClass('no-valid');
+           $('.pint5').addClass('no-valid');
+           $('.pint6').addClass('no-valid');
+           $('.pint7').addClass('no-valid');
+           $('.pint8').addClass('no-valid');
+           $('.pint9').addClass('no-valid');
+           $('.pint10').addClass('no-valid');
+           $('.pint11').addClass('no-valid');
+           $('.pint12').addClass('no-valid');
+           $('.pint13').addClass('no-valid');
+           $('.pint14').addClass('no-valid');
+           $('.pint15').addClass('no-valid');
+           $('.pint16').addClass('no-valid');
+           $('.pint17').addClass('no-valid');
+           $('.pint18').addClass('no-valid');
+           $('.pint19').addClass('no-valid');
+           $('.pint20').addClass('no-valid');
+           $('.pint21').addClass('no-valid');
+           
+           f_no($('#p4dcon1'));
+           p4cont1;
+        }else {
+           if (sumando1==p4nm1 && sumando2==p4nm2 && sumando3==(p4nm1-p4nm2)) {
+                p4cont1++;
+
+                $('.pinta').addClass('valid');
+
+                f_ok($('#p4dcon1'));
+            }else {
+                p4cont1;
+                $('.pinta').addClass('no-valid');
+                f_no($('#p4dcon1'));
+            }
+        }
+        var result4=(p4cont1*2)/2;
+        cor=cor+ parseFloat(result4);
+        inc=inc+(2-parseFloat(result4));
+
+        /////////////////////////////////////pregunta5///////////////////////////////////////////////////////
+        var p5dcon1=$('#p5dcon1').val();
+        var p5dcon2=$('#p5dcon2').val();
+        var p5dcon3=$('#p5dcon3').val();
+        var p5dcon4=$('#p5dcon4').val();
+        var p5dcon5=$('#p5dcon5').val();
+        var p5dcon6=[$('#p5dcon6').val(),$('#p5dcon7').val()];
+        var p5dcon7= p5dcon6.join('');
+        var p5dcon8=[$('#p5dcon8').val(),$('#p5dcon9').val()];
+        var p5dcon9= p5dcon8.join('');
+        var p5dcon10=[$('#p5dcon10').val(),$('#p5dcon11').val()];
+        var p5dcon11=p5dcon10.join('');
+        var p5dcon12=$('#p5dcon12').val();
+        var p5cont1=0;
+        if (p5dcon1==p5nm3) {
+          p5cont1++;
+          f_ok($('#p5dcon1'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon1'));
+        }
+        if (p5dcon2==p5nm4) {
+          p5cont1++;
+          f_ok($('#p5dcon2'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon2'));
+        }
+        if (p5dcon3=='resta' || p5dcon3=='sustracción') {
+          p5cont1++;
+          f_ok($('#p5dcon3'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon3'));
+        }
+        if (p5dcon4==p5nm3) {
+          p5cont1++;
+          f_ok($('#p5dcon4'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon4'));
+        }
+        if (p5dcon5==p5nm4) {
+          p5cont1++;
+          f_ok($('#p5dcon5'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon5'));
+        }
+        
+        if (p5dcon7==p5nm3) {
+          p5cont1++;
+          f_ok($('#p5dcon7'));
+          f_ok($('#p5dcon6'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon7'));
+          f_no($('#p5dcon6'));
+        }
+        if (p5dcon9==p5nm4) {
+          p5cont1++;
+          f_ok($('#p5dcon9'));
+          f_ok($('#p5dcon8'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon9'));
+          f_no($('#p5dcon8'));
+        }
+        if (p5dcon11==(p5nm3-p5nm4)) {
+          p5cont1++;
+          f_ok($('#p5dcon11'));
+          f_ok($('#p5dcon10'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon11'));
+          f_no($('#p5dcon10'));
+        }
+        if (p5dcon12==(p5nm3-p5nm4)) {
+          p5cont1++;
+          f_ok($('#p5dcon12'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon12'));
+        }
+        var p5dcon26=$('#p5dcon26').val();
+        var p5dcon13=$('#p5dcon13').val();
+        var p5dcon14=$('#p5dcon14').val();
+        var p5dcon15=$('#p5dcon15').val();
+        var p5dcon16=$('#p5dcon16').val();
+        var p5dcon17=[$('#p5dcon17').val(),$('#p5dcon18').val()];
+        var p5dcon18= p5dcon17.join('');
+        var p5dcon19=[$('#p5dcon19').val(),$('#p5dcon20').val()];
+        var p5dcon20= p5dcon19.join('');
+        var p5dcon21=[$('#p5dcon21').val(),$('#p5dcon22').val()];
+        var p5dcon22=p5dcon21.join('');
+        var p5dcon23=$('#p5dcon23').val();
+        var p5dcon24=$('#p5dcon24').val();
+        var p5dcon25=$('#p5dcon25').val();
+        var p5dcon27=$('#p5dcon27').val();
+        if (p5dcon26==p5num1) {
+          p5cont1++;
+          f_ok($('#p5dcon26'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon26'));
+        }
+        if (p5dcon13==p5num2) {
+          p5cont1++;
+          f_ok($('#p5dcon13'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon13'));
+        }
+        if (p5dcon14=='suma' || p5dcon14=='adición') {
+          p5cont1++;
+          f_ok($('#p5dcon14'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon14'));
+        }
+        if (p5dcon15==p5num1) {
+          p5cont1++;
+          f_ok($('#p5dcon15'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon15'));
+        }
+        if (p5dcon16==p5num2) {
+          p5cont1++;
+          f_ok($('#p5dcon16'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon16'));
+        }
+        if (p5dcon18==p5num1) {
+          p5cont1++;
+          f_ok($('#p5dcon18'));
+          f_ok($('#p5dcon17'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon18'));
+          f_no($('#p5dcon17'));
+        }
+        if (p5dcon20==p5num2) {
+          p5cont1++;
+          f_ok($('#p5dcon20'));
+          f_ok($('#p5dcon19'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon20'));
+          f_no($('#p5dcon19'));
+        }
+        if (p5dcon22==(p5num1 + p5num2)) {
+          p5cont1++;
+          f_ok($('#p5dcon22'));
+          f_ok($('#p5dcon21'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon22'));
+          f_no($('#p5dcon21'));
+        }
+        if (p5dcon23==p5num1) {
+          p5cont1++;
+          f_ok($('#p5dcon23'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon23'));
+        }
+        if (p5dcon24==p5num2) {
+          p5cont1++;
+          f_ok($('#p5dcon24'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon24'));
+        }
+        if (p5dcon25==(p5num1 + p5num2)) {
+          p5cont1++;
+          f_ok($('#p5dcon25'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon25'));
+        }
+        if (p5dcon27==(p5num1 + p5num2)) {
+          p5cont1++;
+          f_ok($('#p5dcon27'));
+        }else{
+          p5cont1;
+          f_no($('#p5dcon27'));
+        }
+        var result5=(p5cont1*2)/21;
+        cor=cor+ parseFloat(result5);
+        inc=inc+(2-parseFloat(result5));
+
+        var nota1_1=$('#nota1_1').val();
+      if (!nota1_1) {
+        inc=inc+2;
+        f_no($('#nota1_1'));
+        $('#nota1_1').attr('disabled','true');
+      }else{
+        cor=cor+parseFloat(nota1_1);
+        inc=inc+(2-parseFloat(nota1_1));
+        f_ok($('#nota1_1'));
+        $('#nota1_1').attr('disabled','true');
+      }
+      var nota1_2=$('#nota1_2').val();
+      if (!nota1_2) {
+        inc=inc+2;
+        f_no($('#nota1_2'));
+        $('#nota1_2').attr('disabled','true');
+      }else{
+        cor=cor+parseFloat(nota1_2);
+        inc=inc+(2-parseFloat(nota1_2));
+        f_ok($('#nota1_2'));
+        $('#nota1_2').attr('disabled','true');
+      }
         Calculo_nota();
    }
 }
